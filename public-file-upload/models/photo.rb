@@ -8,6 +8,14 @@ class Photo
   property :title, String
   validates_presence_of :title,
     :message => "Your photo must have a title."
+  
+  has n, :comments
+  
+  def addLike()
+    self.likes += 1
+  end
+    
+  property :likes, Integer,  required: true, default: 0
 
   property :created_at, DateTime
   validates_presence_of :created_at

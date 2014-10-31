@@ -29,7 +29,7 @@ namespace :setup do
 
     FileUtils.cp("env.example", ".env")
     File.open(".env", "a+") do |f|
-      f.puts "SESSION_SECRET=#{SecureRandom.hex(64)}"
+      f.puts "SESSION_SECRET=\"#{SecureRandom.hex(64)}\""
     end
   end
 end

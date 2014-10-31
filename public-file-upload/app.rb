@@ -27,6 +27,13 @@ get("/") do
   erb(:index, :locals => { :photos => photos })
 end
 
+post("/photoLike/*") do |id|
+  photo = Photo.get(id)
+  photo.addLike()
+  photo.save
+  redirect("/")
+end
+
 get("/photos/new") do
   photo = Photo.new
   erb(:photos_new, :locals => { :photo => photo })

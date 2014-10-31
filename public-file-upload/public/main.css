@@ -13,9 +13,7 @@ a:hover {
   width: 900px;
   font-size: 16px;
 }
-/* BEGIN: Global styles */
 
-/* BEGIN: Site header styles */
 #site-header {
   margin-bottom: 20px;
   padding: 20px;
@@ -45,9 +43,7 @@ a:hover {
   margin-right: 20px;
   line-height: 50px;
 }
-/* END: Site header styles */
 
-/* BEGIN: Photo list styles */
 .photo-list {
   margin: 0;
   padding: 0;
@@ -59,14 +55,14 @@ a:hover {
   box-sizing: border-box;
   margin: 5px;
   padding: 0;
-  width: 290px;
-  height: 290px;
 }
 
 .photo-list .photo-container {
   position: relative;
   box-sizing: border-box;
-  width: 100%;
+  width: 290px;
+  height: 290px;
+
 }
 
 .photo-list .photo-container .photo-title {
@@ -85,6 +81,7 @@ a:hover {
   line-height: 40px;
   opacity: 0;
   transition: visibility 0.1s ease-in-out 0.25s, opacity 0.25s ease-in-out;
+   
 }
 
 .photo-list .photo-container:hover .photo-title {
@@ -108,9 +105,7 @@ a:hover {
   width: 100%;
   border: 1px solid rgb(250, 250, 250);
 }
-/* END: Photo list styles */
 
-/* BEGIN: General photo styles */
 .photo-container-full img {
   width: 900px;
 }
@@ -155,5 +150,17 @@ a:hover {
 .horizontal-form button {
   float: right;
   clear: both;
+}
+#upvote {
+  padding-top: 5px;
+  font-size: 30px;
+}
+button {
+  border: none;
+  padding: 0px;
+  background-color: #000000;
+  display: block;
+  margin: 0 auto;
+  color: white;
 }
 /* END: Form styles */

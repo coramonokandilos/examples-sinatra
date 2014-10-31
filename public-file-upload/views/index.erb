@@ -1,5 +1,5 @@
 <article id="page-index">
-  <h2>Photos!</h2>
+  <h2>Put your Halloween costume mysteries here!</h2>
 
   <% if photos.empty? %>
     <h3>Nobody's uploaded any photos (yet).</h3>
@@ -17,6 +17,13 @@
             <a href="/photos/<%= photo.id %>">
               <img class="photo-thumb" src="<%= photo.thumb_url %>">
             </a>
+          </div>
+          <div id="upvote">
+            <div style="float: left;">
+              <%= photo.likes %>
+            </div>
+            <form action="/photoLike/<%=photo.id%>" method="POST">
+            <button type="submit", class = "">☝</button></form>
           </div>
         </li>
       <% end %>
