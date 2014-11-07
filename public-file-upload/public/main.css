@@ -157,10 +157,11 @@ a:hover {
 }
 button {
   border: none;
-  padding: 0px;
+  padding: 12px;
   background-color: #000000;
   display: block;
   margin: 0 auto;
   color: white;
 }
+
 /* END: Form styles */
