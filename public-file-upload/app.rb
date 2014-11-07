@@ -22,6 +22,16 @@ helpers do
   end
 end
 
+post ("/photos/*/comments") do |photo_id|
+  photo = Photo.get(photo_id)
+  comment = Comment.new
+  comment.body = params[:comment_body]
+  comment.created_at=DateTime.now
+  photo.comments.push(comment)
+  photo.save
+  redirect("/photos/#{photo_id}")
+end
+
 get("/") do
   photos = Photo.all
   erb(:index, :locals => { :photos => photos })
