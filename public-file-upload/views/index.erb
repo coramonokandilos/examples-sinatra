@@ -6,6 +6,14 @@
     <p>
       Visit the <a href="/photos/new">photo uploads page</a> to be the first.
     </p>
+    
+  <div id="login">
+    <form action="/login" method="POST">
+       <input name="comment_body" placeholder="username bruh"></input>
+       <input type="password" name="top_secret_password" placeholder="password bruh"></input>
+      <button type="submit"> Add Comment </button>
+    </form>
+  </div>
   <% else %>
     <ol class="photo-list">
       <% photos.each do |photo| %>

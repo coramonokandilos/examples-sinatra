@@ -1,5 +1,5 @@
 require "sinatra"
-
+require "sinatra/cookies"
 require "./environment"
 
 helpers do
