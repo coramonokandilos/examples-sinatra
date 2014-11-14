@@ -33,7 +33,7 @@ post ("/photos/*/comments") do |photo_id|
 end
 
 get("/") do
-  photos = Photo.all
+  photos = Photo.all(:order => [ :likes.desc, :created_at.desc ])
   erb(:index, :locals => { :photos => photos })
 end
 
