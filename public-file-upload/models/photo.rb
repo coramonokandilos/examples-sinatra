@@ -10,6 +10,7 @@ class Photo
     :message => "Your photo must have a title."
   
   has n, :comments
+  belongs_to :user
   
   def addLike()
     self.likes += 1

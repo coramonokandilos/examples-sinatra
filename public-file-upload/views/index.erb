@@ -1,19 +1,26 @@
 <article id="page-index">
-  <h2>Put your Halloween costume mysteries here!</h2>
+  <h2>Share your Halloween costume mysteries with others here!</h2>
+
+  
+   <% if user_signed_in? %>
+   <p>
+      It looks like you're signed in.  Congrats! You can
+      <a href="/sessions/sign_out">sign out</a> at any time.
+    </p>
+  <% else %>
+    <p>
+      It doesn't look like you're signed in.  You should
+      <a href="/users/new">create an account</a> or
+      <a href="/sessions/new">sign into your existing account</a>.
+    </p>
+  <% end %>
+</article>
 
   <% if photos.empty? %>
     <h3>Nobody's uploaded any photos (yet).</h3>
     <p>
       Visit the <a href="/photos/new">photo uploads page</a> to be the first.
     </p>
-    
-  <div id="login">
-    <form action="/login" method="POST">
-       <input name="comment_body" placeholder="username bruh"></input>
-       <input type="password" name="top_secret_password" placeholder="password bruh"></input>
-      <button type="submit"> Add Comment </button>
-    </form>
-  </div>
   <% else %>
     <ol class="photo-list">
       <% photos.each do |photo| %>
