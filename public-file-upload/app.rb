@@ -78,21 +78,36 @@ get("/photos/*") do |photo_id|
   erb(:photos_show, :locals => { :photo => photo })
 end
 
+
 post("/photos") do
+  # set the user property in photo to the current user
   # there's a method called current_user in the example
   # app that will return the currently signed in user
   # if there is one.  Whenever a user uploads a photo,
   # you want to associate the photo with the current user.
   # Try out a few ideas for how to achieve this and flag
   # someone down if it's taking longer than 15 minutes or so.
-  photo = Photo.create(params[:photo])
-
+  # puts params
+  # puts 1
+  # photo_unsaved = params[:photo]
+  # photo_unsaved.user = current_user
+  
+  # photo = Photo.create(photo_unsaved)
+  # photo.errors.each do |e|
+  #   puts e
+  # end
+  photo = current_user.photos.create(params[:photo])
+  
+  puts 2
   if photo.saved?
+    puts 3
     redirect("/")
   else
+    puts 4
     erb(:photos_new, :locals => { :photo => photo })
   end
-  def current_user
+  puts 5
+ def current_user
     # Return nil if no user is logged in
     return nil unless session.key?(:user_id)
 
@@ -114,6 +129,7 @@ post("/photos") do
     session.delete(:user_id)
   end
 end
+ 
 set(:sessions, true)
 set(:session_secret, ENV["SESSION_SECRET"])
 

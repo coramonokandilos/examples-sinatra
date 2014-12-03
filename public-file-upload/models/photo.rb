@@ -17,7 +17,7 @@ class Photo
   end
     
   property :likes, Integer,  required: true, default: 0
-
+ 
   property :created_at, DateTime
   validates_presence_of :created_at
 

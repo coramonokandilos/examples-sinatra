@@ -1,14 +1,9 @@
 <article id="sessions-new-page">
   <h2>Sign In</h2>
 
-  <% if user.errors.any? %>
+  <% if user == nil || user.errors.any? %>
     <div class="form-errors">
-      <h3>Uh oh! There were some errors.</h3>
-      <ul class="error-messages">
-        <% user.errors.full_messages.each do |error_msg| %>
-          <li><%= error_msg %></li>
-        <% end %>
-      </ul
+      <p>There was a problem signing in.</p>
     </div>
   <% end %>
 
@@ -17,8 +12,8 @@
 
     <label for="username">Username</label>
 
-    <input id="username" type="text" name="name"
-           placeholder="sailorMoonie" value="<%= user.username %>">
+    <input id="username" type="text" name="username"
+           placeholder="sailorMoonie">
 
     <label for="password">Password</label>
 
