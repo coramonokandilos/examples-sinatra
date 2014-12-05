@@ -1,14 +1,18 @@
+<head>
+<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One|Alegreya+SC' rel='stylesheet' type='text/css'/>
+</head>
+
 <article id="page-index">
-  <h2>Spine-chilling Findings</h2>
+  <h2 id="titlePart">Spine-chilling Findings</h2>
 
   
    <% if user_signed_in? %>
-   <p>
+   <p id="signed-in">
       You're signed in as <strong><%= current_user.username %></strong>. You can
       <a href="/sessions/sign_out">sign out</a> at any time.
     </p>
   <% else %>
-    <p>
+    <p id="not-signed-in">
       It doesn't look like you're signed in.  You should
       <a href="/users/new">create an account</a> or
       <a href="/sessions/new">sign into your existing account</a>.
@@ -34,11 +38,9 @@
             </a>
           </div>
           <div id="upvote">
-            <div style="float: left;">
               <%= photo.likes %>
-            </div>
             <form action="/photoLike/<%=photo.id%>" method="POST">
-            <button type="submit">☝</button></form>
+            <button type="submit">Like!</button></form>
           </div>
         </li>
       <% end %>

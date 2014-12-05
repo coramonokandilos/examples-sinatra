@@ -12,8 +12,6 @@ a:hover {
 }
 
 #site-header {
-  margin-bottom: 20px;
-  padding: 20px;
   height: 50px;
   border-style: none;
   margin: 0 auto;
@@ -27,13 +25,12 @@ a:hover {
 
 #site-header a{
   float: left;
-  margin: 0;
-  padding: 0;
   font-size: 53px;
   line-height: 10px;
   color: #000000;
   font-family: 'eater';
   text-decoration: none;
+  padding-top: 20px;
 }
 
 #site-header nav .nav-links {
@@ -41,7 +38,7 @@ a:hover {
   font-size: 25px;
   color: #00FF00;
   position: relative;
-  left: 40%;
+  left: 50%;
 }
 
 #site-header nav .nav-links li a{
@@ -51,9 +48,21 @@ a:hover {
   font-size: 25px;
   color: #000000;
   padding-left: 65px;
-    font-family: 'Julius Sans One';
-    /*this font for the homepage "addphoto" button is not working*/
+  font-family: 'Julius Sans One';
+    /*this font for the homepage "addphoto" button doesn't work on some computers.....*/
+}
 
+#page-index{
+  text-align: center;
+}
+#titlePart{
+  font-family:"eater";
+}
+
+#signed-in, #not-signed-in{
+  font-size: 13px;
+  font-family: 'Julius Sans One';
+  font-weight: bold;
 }
 
 .photo-list {
@@ -166,14 +175,17 @@ a:hover {
 #upvote {
   padding-top: 5px;
   font-size: 30px;
+  text-align: center;
 }
 button {
   border: none;
+  border-radius: 10px;
   padding: 12px;
   background-color: #000000;
   display: block;
   margin: 0 auto;
   color: white;
+  text-align: center;
 }
 
 #form-errors {
