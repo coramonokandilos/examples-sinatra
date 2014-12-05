@@ -11,6 +11,10 @@
       </ul
     </div>
   <% end %>
+  
+    <% if user_logged_in == false %>
+  <h3 id="form-errors"> Uh oh! It looks like you haven't signed in! Create an account, or sign in <a href="/sessions/new">here</a> </h3>
+  <% end %>
 
   <form id="create-account-form" class="horizontal-form"
         method="POST" action="/users">
@@ -24,6 +28,8 @@
 
     <input id="user-password" type="password" name="user[password]">
 
+
+    
     <button type="submit">Create Account</button>
   </form>
 </article>

@@ -69,8 +69,12 @@ post("/photoLike/*") do |id|
 end
 
 get("/photos/new") do
-  photo = Photo.new
-  erb(:photos_new, :locals => { :photo => photo })
+  if current_user == nil
+    redirect("/users/new")
+  else
+    photo = Photo.new
+    erb(:photos_new, :locals => { :photo => photo })
+  end
 end
 
 get("/photos/*") do |photo_id|
@@ -79,21 +83,18 @@ get("/photos/*") do |photo_id|
 end
 
 post("/photos") do
-  if current_user == nil
-    redirect("/noCurrentUser.html")
-  else
-    photo = current_user.photos.create(params[:photo])
-    if photo.saved?
-      redirect("/")
+photo = current_user.photos.create(params[:photo])
+  if photo.saved?
+    redirect("/")
     else
       erb(:photos_new, :locals => { :photo => photo })
     end
-  end
 end
+
 
 get("/users/new") do
   user = User.new
-  erb(:users_new, :locals => { :user => user })
+  erb(:users_new, :locals => { :user => user, user_logged_in: false })
 end
 
 post("/users") do
@@ -104,7 +105,7 @@ post("/users") do
 
     redirect("/")
   else
-    erb(:users_new, :locals => { :user => user })
+    erb(:users_new, :locals => { :user => user, user_logged_in: true })
   end
 end
 
