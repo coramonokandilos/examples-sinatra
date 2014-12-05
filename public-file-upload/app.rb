@@ -78,43 +78,17 @@ get("/photos/*") do |photo_id|
   erb(:photos_show, :locals => { :photo => photo })
 end
 
-
 post("/photos") do
-  photo = current_user.photos.create(params[:photo])
-  if photo.saved?
-    redirect("/")
+  if current_user == nil
+    redirect("/noCurrentUser.html")
   else
-    erb(:photos_new, :locals => { :photo => photo })
+    photo = current_user.photos.create(params[:photo])
+    if photo.saved?
+      redirect("/")
+    else
+      erb(:photos_new, :locals => { :photo => photo })
+    end
   end
- def current_user
-    # Return nil if no user is logged in
-    return nil unless session.key?(:user_id)
-
-    # If @current_user is undefined, define it by
-    # fetching it from the database.
-    @current_user ||= User.get(session[:user_id])
-  end
-  def user_signed_in?
-    # A user is signed in if the current_user method
-    # returns something other than nil
-    !current_user.nil?
-  end
-  def sign_in!(user)
-    session[:user_id] = user.id
-    @current_user = user
-  end
-  def sign_out!
-    @current_user = nil
-    session.delete(:user_id)
-  end
-end
- 
-set(:sessions, true)
-set(:session_secret, ENV["SESSION_SECRET"])
-
-get("/") do
-  users = User.all
-  erb(:index, :locals => { :users => users })
 end
 
 get("/users/new") do
@@ -154,5 +128,3 @@ get("/sessions/sign_out") do
   sign_out!
   redirect("/")
 end
-
-
