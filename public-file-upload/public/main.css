@@ -11,6 +11,11 @@ a:hover {
   font-size: 16px;
 }
 
+.backgroundBody {
+  background-image: url("blood2.jpg");
+  background-repeat: repeat-x;
+  /*want to make the blood splatter repeat for the rest of the website after the initial photo*/
+}
 #site-header {
   height: 50px;
   border-style: none;
