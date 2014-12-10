@@ -12,19 +12,17 @@ a:hover {
 }
 
 .backgroundBody {
-  background-image: url("blood2.jpg");
+  background-image: url("blood4.jpg");
   background-repeat: repeat-x;
   background-attachment: scroll;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+  background-size: 50%;
 }
 #site-header {
   height: 50px;
   border-style: none;
   margin: 0 auto;
-  width: 50%; 
-  padding-left: 20%;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 #main-content{
@@ -32,14 +30,25 @@ a:hover {
   width: 900px;
 }
 
+#addPhotoButton{
+  background-color: #000000;
+  font-size: 30px;
+}
+#addPhotoButton1{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+#createAccount, #signIn{
+  padding-top: 40px;
+}
+
+
 #site-header a{
-  float: left;
-  font-size: 53px;
-  line-height: 10px;
+  font-size: 80px;
   color: #000000;
   font-family: 'eater';
   text-decoration: none;
-  padding-top: 20px;
 }
 
 #site-header nav .nav-links {
@@ -56,9 +65,8 @@ a:hover {
   line-height: 20px;
   font-size: 25px;
   color: #000000;
-  padding-left: 65px;
-  font-family: 'Julius Sans One';
-    /*this font for the homepage "addphoto" button doesn't work on some computers.....*/
+  padding-right: 20%;
+  font-family: 'Julius Sans One', Arial;
 }
 
 #page-index{
@@ -66,11 +74,12 @@ a:hover {
 }
 #titlePart{
   font-family:"eater";
+  font-size: 40px;
 }
 
 #signed-in, #not-signed-in{
-  font-size: 13px;
-  font-family: 'Julius Sans One';
+  font-size: 20px;
+  font-family: 'Julius Sans One', Arial;
   font-weight: bold;
 }
 
