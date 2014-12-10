@@ -14,13 +14,13 @@
    <% if user_signed_in? %>
    <p id="signed-in">
       You're signed in as <strong><%= current_user.username %></strong>. You can
-      <a href="/sessions/sign_out">sign out</a> at any time.
+      <a href="/sessions/sign_out" style="color: #000000">sign out</a> at any time.
     </p>
   <% else %>
     <p id="not-signed-in">
       It doesn't look like you're signed in.  You should
-      <a href="/users/new">create an account</a> or
-      <a href="/sessions/new">sign into your existing account</a>.
+      <a href="/users/new" style="color: #000000">create an account</a> or
+      <a href="/sessions/new" style="color: #000000">sign into your existing account</a>.
     </p>
   <% end %>
 </article>
