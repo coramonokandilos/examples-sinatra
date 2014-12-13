@@ -93,8 +93,21 @@ end
 
 
 get("/users/new") do
+  # if user redirected from photos/new
+    # show error message
+    
+  # else 
+  #   show normal form
+  
+  
   user = User.new
-  erb(:users_new, :locals => { :user => user, user_logged_in: false })
+  erb(:users_new, :locals => { :user => user, user_logged_in: true})
+  if user.saved?
+    sign_in!(user)
+    redirect("/")
+  else
+    erb(:users_new, :locals => { :user => user, user_logged_in: true })
+  end
 end
 
 post("/users") do
